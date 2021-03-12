@@ -61,7 +61,7 @@ def nt_xent_loss(queries, keys, temperature = 0.1):
 
     labels = torch.cat(((torch.arange(b, device=device) + b - 1), torch.arange(b, device=device)), dim=0)
     loss = F.cross_entropy(logits, labels, reduction='sum')
-    loss /= 2 * (b - 1)
+    loss /= n
     return loss
 
 # augmentation utils
